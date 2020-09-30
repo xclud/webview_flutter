@@ -343,12 +343,14 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
   }
 
   private void applySettings(Map<String, Object> settings) {
-	webView.getSettings().setDomStorageEnabled(true);
-	
     for (String key : settings.keySet()) {
       switch (key) {
         case "jsMode":
           updateJsMode((Integer) settings.get(key));
+          break;
+        case "domStorage":
+         final boolean setDomStorageEnabled = (boolean) settings.get(key);
+         webView.getSettings().setDomStorageEnabled(setDomStorageEnabled);
           break;
         case "hasNavigationDelegate":
           final boolean hasNavigationDelegate = (boolean) settings.get(key);

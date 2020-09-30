@@ -145,6 +145,7 @@ class WebView extends StatefulWidget {
     this.onWebViewCreated,
     this.initialUrl,
     this.javascriptMode = JavascriptMode.disabled,
+    this.setDomStorageEnabled = true,
     this.javascriptChannels,
     this.navigationDelegate,
     this.gestureRecognizers,
@@ -212,6 +213,8 @@ class WebView extends StatefulWidget {
 
   /// Whether Javascript execution is enabled.
   final JavascriptMode javascriptMode;
+
+  final bool setDomStorageEnabled;
 
   /// The set of [JavascriptChannel]s available to JavaScript code running in the web view.
   ///
@@ -399,6 +402,7 @@ CreationParams _creationParamsfromWidget(WebView widget) {
 WebSettings _webSettingsFromWidget(WebView widget) {
   return WebSettings(
     javascriptMode: widget.javascriptMode,
+    setDomStorageEnabled: widget.setDomStorageEnabled,
     hasNavigationDelegate: widget.navigationDelegate != null,
     debuggingEnabled: widget.debuggingEnabled,
     gestureNavigationEnabled: widget.gestureNavigationEnabled,

@@ -379,6 +379,7 @@ class WebSettings {
   /// The `userAgent` parameter must not be null.
   WebSettings({
     this.javascriptMode,
+    this.setDomStorageEnabled,
     this.hasNavigationDelegate,
     this.debuggingEnabled,
     this.gestureNavigationEnabled,
@@ -387,6 +388,8 @@ class WebSettings {
 
   /// The JavaScript execution mode to be used by the webview.
   final JavascriptMode javascriptMode;
+
+  final bool setDomStorageEnabled;
 
   /// Whether the [WebView] has a [NavigationDelegate] set.
   final bool hasNavigationDelegate;
@@ -413,7 +416,7 @@ class WebSettings {
 
   @override
   String toString() {
-    return 'WebSettings(javascriptMode: $javascriptMode, hasNavigationDelegate: $hasNavigationDelegate, debuggingEnabled: $debuggingEnabled, gestureNavigationEnabled: $gestureNavigationEnabled, userAgent: $userAgent)';
+    return 'WebSettings(javascriptMode: $javascriptMode, setDomStorageEnabled: $setDomStorageEnabled, hasNavigationDelegate: $hasNavigationDelegate, debuggingEnabled: $debuggingEnabled, gestureNavigationEnabled: $gestureNavigationEnabled, userAgent: $userAgent)';
   }
 }
 
